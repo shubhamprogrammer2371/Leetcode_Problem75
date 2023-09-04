@@ -1,0 +1,36 @@
+void sortColors(int* nums, int numsSize){
+    for(int i = 0 ; i < numsSize ; i++)
+    {
+        for(int j = 0 ; j < numsSize-1 ; j++)
+        {
+            if(nums[j] > nums[j+1])
+            {
+                int temp = nums[j];
+                nums[j] = nums[j+1];
+                nums[j+1] = temp;
+            }
+        }
+    }
+}
+
+
+
+--------------------------------------------------------
+
+
+
+void sortColors(int* nums, int numsSize){
+    int count[3] = {0} , j = 0 , i = 0;
+    for(int i = 0 ; i < numsSize ; i++)
+        count[nums[i]]++;
+    while(i < numsSize )
+    {
+        if(count[j])
+        {
+            nums[i++] = j;
+            count[j]--;
+        }
+        else 
+            j++;
+    }
+}
